@@ -1,0 +1,45 @@
+<main>
+  <header class="header">
+
+  </header>
+  <section class="container">
+
+    <div class="demo" class="form-style-8">
+      <h2>Registra tu cuenta</h2>
+      <form>
+        <input type="text" name="field1" placeholder="Nombre" #nombre required/>
+        <input type="text" name="field1" placeholder="Apellido" #apellido required/>
+        <input type="email" name="field2" placeholder="Email" #email required/>
+
+
+      </form>
+
+      <div class="input-control">
+        <label for="date-input"></label>
+        <input class="picker-input" placeholder="Fecha de nacimiento"
+               id="date-input"
+               [ngModel]="moment | date: 'mediumDate'"
+               (focus)="toggleDatePicker(true)"
+               readonly>
+      </div>
+<br>
+
+      <input type="button" value="Crear" [routerLink]="['/profile']"/>
+    </div>
+
+
+  </section>
+
+</main>
+
+<date-picker *ngIf="showDatePicker"
+             [initDate]="moment" [initDate]="21/04/89"
+             (onSelectDate)="setDate($event)"
+             (onDatePickerCancel)="toggleDatePicker($event)"></date-picker>
+
+<time-picker *ngIf="showTimePicker"
+             [initTime]="moment"
+             [use12Hour]="true"
+             (onSelectTime)="setTime($event)"
+             (onTimePickerCancel)="toggleTimePicker($event)"></time-picker>
+

@@ -1,1 +1,75 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/core/theming/prebuilt/deeppurple-amber.css";
+
+md-sidenav-container.barra {
+  height: 550px;
+  width: auto;
+}
+button.boton{
+  -webkit-transform-origin: left top;
+  left: 1000px;
+}
+
+div.img{
+  height: 200px;
+  width: 150px;
+}
+
+md-tab{
+  height: 100%;
+}
+
+img.imagen{
+  width: 40%;
+  height: 35%;
+}
+
+
+div.carta{
+  width: auto;
+  height: auto;
+}
+
+md-card-subtitle.letra{
+  font-size: xx-small;
+}
+
+md-card.card{
+  width: auto;
+}
+
+img.icono{
+  height: 50px;
+  width: 50px;
+}
+
+md-sidenav.barra2{
+  width: auto;
+
+}
+
+md-tab-group{
+  width: 99%;
+}
+
+nav{
+  height: 90px;
+  overflow-y:auto;
+  position: relative;
+}
+
+table, td, th {
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 15px;
+}
+
+

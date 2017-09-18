@@ -1,3 +1,96 @@
-<h1>
-  {{title}}
-</h1>
+<html style="height: 0">
+<body style="height: 0%">
+<div style="float: left; width: 80%;">
+  <md-sidenav-container class="barra">
+    <md-sidenav align="start" mode="side" class="barra2" opened>
+      <md-tab-group>
+        <md-tab >
+          <template md-tab-label>
+            Historia
+          </template>
+          {{contactoSeleccionado?.Cita}}
+          <br><br>
+          {{contactoSeleccionado?.parrafo1}}
+          <br>
+          {{contactoSeleccionado?.parrafo2}}
+          <br>
+          {{contactoSeleccionado?.parrafo3}}
+        </md-tab>
+        <md-tab >
+          <template md-tab-label>
+            Perfil
+          </template>
+          <md-card align="center">
+            <md-card-header>
+              <div *ngIf="contactoSeleccionado"><img class="icono" md-card-avatar src="../img/realmadrid.png"></div>
+              <md-card-title  *ngIf="contactoSeleccionado">{{contactoSeleccionado?.nombre}}</md-card-title>
+              <md-card-subtitle class="letra"  *ngIf="contactoSeleccionado">{{contactoSeleccionado?.posicion}} Dorsal: {{contactoSeleccionado?.dorsal}} </md-card-subtitle>
+              <md-card-subtitle class="letra"  *ngIf="contactoSeleccionado">Edad: {{contactoSeleccionado?.edad}}</md-card-subtitle>
+            </md-card-header>
+            <md-card-content>
+              {{contactoSeleccionado?.Cita}}
+              <br><br>
+              {{contactoSeleccionado?.parrafo1}}
+              <br>
+              {{contactoSeleccionado?.parrafo2}}
+              <br>
+              {{contactoSeleccionado?.parrafo3}}</md-card-content>
+            <div class="img"><img md-card src="{{contactoSeleccionado?.foto}}"></div>
+          </md-card>
+        </md-tab>
+        <md-tab>
+          <template md-tab-label>
+            Trofeos
+          </template>
+          {{contactoSeleccionado?.trofeos}}
+        </md-tab>
+        <md-tab>
+          <template md-tab-label>
+            Equipos
+          </template>
+          {{contactoSeleccionado?.Equipos}}
+        </md-tab>
+        <md-tab>
+          <template md-tab-label>
+            Galeria
+          </template>
+          <ul><img class="imagen" src="../img/1.jpg">  UEFA CHAMPIONS LEAGUE 2016</ul>
+          <ul><img class="imagen" src="../img/2.jpg">  UNDECIMA CELEBRACION</ul>
+          <ul><img class="imagen" src="../img/3.jpg">  UNDECIMA CELEBRACION</ul>
+        </md-tab>
+        <md-tab>
+          <template md-tab-label>
+            Estadistica
+          </template>
+          <table>
+            <tr>
+            <th>Goles: {{contactoSeleccionado?.Goles}} </th>
+            <th>Remates: {{contactoSeleccionado?.Remates}}</th>
+            <th>Asistencias: {{contactoSeleccionado?.Asistencias}}</th>
+            <th>Minutos: {{contactoSeleccionado?.Minutos}}</th>
+            <th>Faltas recibidas: {{contactoSeleccionado?.Faltasr}}</th>
+            </tr>
+          </table>
+          <chart [options]="options"  *ngIf="contactoSeleccionado"></chart>
+        </md-tab>
+      </md-tab-group>
+    </md-sidenav>
+  </md-sidenav-container>
+</div>
+<nav class="carta" style="float: right; width: 20%; height: 550px">
+  <p>Buscador: <input type="text" value="Buscador Rapido" [(ngModel)]="term"></p>
+  <md-card *ngFor="let contact of contacts | filter: term" (click)="onSelect(contact)" class="card" mode="side" align="end">
+    <md-card-header>
+      <img class="icono" md-card-avatar src="../img/realmadrid.png">
+      <md-card-title>{{contact.nombre}}</md-card-title>
+      <md-card-subtitle class="letra">{{contact.posicion}} Dorsal: {{contact.dorsal}} </md-card-subtitle>
+      <md-card-subtitle class="letra">Edad: {{contact.edad}}</md-card-subtitle>
+    </md-card-header>
+    <div class="img"><img md-card src="{{contact.foto}}"></div>
+  </md-card>
+</nav>
+</body>
+</html>
+
+
+
